@@ -34,6 +34,13 @@ fn app() -> Composer<ComposerGet, ComposerSet> {
 		let a = &THEME.app;
 		match key {
 			b"background" => lua.create_string(&a.background)?.into_lua(lua),
+			b"panes" => lua
+				.create_table_from([
+					("parent", lua.create_string(&a.panes.parent)?),
+					("current", lua.create_string(&a.panes.current)?),
+					("preview", lua.create_string(&a.panes.preview)?),
+				])?
+				.into_lua(lua),
 			_ => Ok(Value::Nil),
 		}
 	}
