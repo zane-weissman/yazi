@@ -21,6 +21,11 @@ light = ""
 [app]
 background  = ""
 
+[app.panes]
+parent  = ""
+current = ""
+preview = ""
+
 # : }}}
 
 
